@@ -20,7 +20,35 @@
         loading = false;
     });
 </script>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
 
+    th, td {
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;   
+    }
+
+    .error {
+        color: red;
+    }
+
+    .success {
+        color: green;
+    
+    }
+</style>
 <h1>Welcome to SvelteKit</h1>
 
 {#if loading}
@@ -33,6 +61,7 @@
             <tr>
                 <th>Name</th>
                 <th>Description</th>
+                <th>Active</th>
             </tr>
         </thead>
         <tbody>
@@ -40,6 +69,7 @@
                 <tr>
                     <td>{city.name}</td>
                     <td>{city.description || 'No description available'}</td>
+                    <td>{city.active ? 'Active' : 'Inactive'}</td>
                 </tr>
             {/each}
         </tbody>
