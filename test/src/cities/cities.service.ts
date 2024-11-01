@@ -4,10 +4,13 @@ import { UpdateCityDto } from './dto/update-city.dto';
 import { City} from 'src/cities/entities/city.entity';
 import { Repository } from 'typeorm';
 import { find } from 'rxjs';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class CitiesService {
-  constructor(private readonly citiesRepository: Repository<City>) {
+  constructor(
+    @InjectRepository(City)
+    private readonly citiesRepository: Repository<City>) {
 
   }
 
